@@ -1,0 +1,8 @@
+#!/bin/sh
+
+if [ -f $1/.yarnrc.yml ]; then
+    echo "$1/.yarnrc.yml detected 🔍"
+    exit 0
+else
+    exit 1
+fi

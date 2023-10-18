@@ -1,0 +1,14 @@
+#!/bin/sh
+
+echo "-----> Check \$NODE_AUTH_TOKEN variable."
+if [ -f $3/NODE_AUTH_TOKEN ]; then
+    NODE_AUTH_TOKEN=$(cat ${3}/NODE_AUTH_TOKEN)
+
+    echo "-----> 'NODE_AUTH_TOKEN' variable detected."
+    echo "-----> Setting 'npmAuthToken' for Yarn project."
+
+    cd $1
+    echo "\nnpmAuthToken: $NODE_AUTH_TOKEN" >> "$1/.yarnrc.yml"
+else
+    echo "-----> $3/NODE_AUTH_TOKEN isn't avialable."
+fi
